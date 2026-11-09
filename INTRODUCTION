@@ -1,0 +1,180 @@
+# Fundamentals of Large Language Models (LLMs)
+## How LLMs Predict Text
+
+### 1. What is an LLM?
+
+LLM stands for **Large Language Model**.
+
+It is an AI model trained on massive amounts of text data to understand language patterns and generate human-like responses.
+
+Examples:
+- GPT – OpenAI
+- Gemini – Google
+- Claude – Anthropic
+- Llama – Meta
+- DeepSeek – DeepSeek AI
+
+**Core Idea:** An LLM predicts the next token based on the previously available tokens.
+
+### 2. How Does an LLM Predict Text?
+
+Consider the input:
+
+`The sun rises in the`
+
+The model calculates probabilities for possible next tokens:
+
+| Possible Token | Illustrative Probability |
+|---|---:|
+| East | 85% |
+| West | 10% |
+| North | 5% |
+
+The model may select "East".
+
+The updated sequence becomes:
+
+`The sun rises in the East`
+
+The model then predicts the next token.
+
+This process continues until the response is complete.
+
+### 3. Vocabulary
+
+Vocabulary is the collection of unique tokens that a language model can recognize and generate.
+
+Example:
+
+`["I", "am", "learning", "AI", "today"]`
+
+Vocabulary size = 5.
+
+Real-world LLMs generally use much larger vocabularies.
+
+### 4. Tokens
+
+Tokens are the units of text processed by an LLM.
+
+A token can be:
+- A complete word
+- A part of a word
+- A punctuation mark
+- A character
+
+**Important:** One word does not necessarily equal one token.
+
+### 5. Probability and Chain Rule
+
+The chain rule of probability helps calculate the probability of an entire sequence.
+
+For example:
+
+`I love AI`
+
+Mathematically:
+
+\[
+P(I,love,AI) =
+P(I)\times P(love|I)\times P(AI|I,love)
+\]
+
+Where:
+- P(I): Probability of the first token.
+- P(love|I): Probability of love given I.
+- P(AI|I,love): Probability of AI given the previous tokens.
+
+Instead of calculating the probability of the entire sequence at once, we calculate it using conditional probabilities.
+
+### 6. Autoregressive Models
+
+Autoregressive models predict the next token using previously available tokens.
+
+Example:
+
+1. Input: `I`
+2. Predict: `love`
+3. Updated input: `I love`
+4. Predict: `AI`
+5. Updated input: `I love AI`
+
+The model feeds its previous generated tokens back into the next prediction step.
+
+This is called **autoregressive generation**.
+
+### 7. How Are LLMs Trained?
+
+The basic training process:
+
+1. **Training Dataset:** Collect large amounts of text.
+2. **Tokenization:** Convert text into tokens.
+3. **Model Prediction:** Predict the next token.
+4. **Loss Calculation:** Compare predicted probabilities with the actual next token.
+5. **Parameter Updates:** Use backpropagation and optimization to reduce loss.
+6. **Iterations:** Repeat the process across training data.
+
+#### Cross-Entropy Loss
+
+A commonly used loss function is:
+
+\[
+L=-\log P(\text{correct token})
+\]
+
+Higher probability for the correct token generally means lower loss.
+
+The model updates its parameters using optimization algorithms such as gradient descent.
+
+### 8. How Do LLMs Learn Grammar and Meaning?
+
+LLMs learn language patterns from massive text datasets.
+
+Examples of relationships:
+- India → Delhi (Geographical relationship)
+- Doctor → Hospital (Contextual relationship)
+- King → Queen (Linguistic relationship)
+
+Through training, models learn statistical patterns involving grammar, syntax, context and semantic relationships.
+
+**Note:** LLMs can generate incorrect information, commonly called hallucinations.
+
+### 9. Important Terminology
+
+| Term | Meaning |
+|---|---|
+| LLM | Large Language Model |
+| Token | Unit of text processed by a model |
+| Vocabulary | Collection of available tokens |
+| Probability | Likelihood of a particular token |
+| Autoregressive | Predicting the next token using previous tokens |
+| Chain Rule | Expresses joint probability using conditional probabilities |
+| Loss Function | Measures prediction error |
+| Backpropagation | Calculates gradients for parameter updates |
+| Inference | Generating outputs using a trained model |
+
+### 10. Key Takeaways
+
+- LLMs generate text through next-token prediction.
+- Tokens are the basic units processed by language models.
+- Vocabulary defines the available token IDs.
+- Chain rule provides the mathematical foundation for sequence probability.
+- Autoregressive models use previous tokens to predict subsequent tokens.
+- Training minimizes prediction loss by updating model parameters.
+- LLMs learn statistical patterns involving grammar, context and semantics.
+
+### 11. What to Learn Next?
+
+The next topic is **Transformer Architecture**.
+
+Topics to cover:
+1. Neural Networks
+2. Embeddings
+3. Positional Encoding
+4. Self-Attention Mechanism
+5. Query, Key and Value (Q, K, V)
+6. Multi-Head Attention
+7. Transformer Blocks
+
+---
+
+*Learning Notes | Large Language Models | 2026*
